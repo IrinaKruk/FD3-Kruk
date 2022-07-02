@@ -37,7 +37,7 @@ let ShopBlock = React.createClass({
       let productsCode = this.state.products.map((animal) =>
          React.createElement(ProductBlock, {
             text: animal.text,
-            code: animal.code,
+            key: animal.code,
             productCode: animal.code,
             url: animal.url,
             price: animal.price,

@@ -4,7 +4,6 @@ let ProductBlock = React.createClass({
 
    propTypes: {
       text: React.PropTypes.string.isRequired,
-      code: React.PropTypes.number.isRequired,
       productCode: React.PropTypes.number.isRequired,
       url: React.PropTypes.string.isRequired,
       price: React.PropTypes.number.isRequired,
