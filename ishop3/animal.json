@@ -1,0 +1,23 @@
+[
+   {
+      "text": "Cat",
+      "code": 1,
+      "url": "https://klike.net/uploads/posts/2019-06/medium/1559798647_2.jpg",
+      "price": 150,
+      "residue": 2
+   },
+   {
+      "text": "Dog",
+      "code": 2,
+      "url": "https://cdn.maximonline.ru/ca/50/e1/ca50e1aaa4f4a5a1b615084b6ef60aab/659x460_0xac120005_5886508841529041393.jpg",
+      "price": 160,
+      "residue": 1
+   },
+   {
+      "text": "Turtle",
+      "code": 3,
+      "url": "https://samizoo.ru/upload/medialibrary/a3e/a3e00367102894c64111da235b9eee10.png",
+      "price": 120,
+      "residue": 0
+   }
+]
