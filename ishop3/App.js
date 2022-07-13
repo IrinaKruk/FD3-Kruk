@@ -7,8 +7,10 @@ let shopText = 'Shop "Animal" ';
 let shopArr = require('./animal.json');
 
 ReactDOM.render(
-   React.createElement(ShopBlock, { text: shopText, products: shopArr }),
-   document.getElementById('ishop')
+   <ShopBlock
+      text={shopText}
+      products={shopArr}
+   />
+   , document.getElementById('ishop')
 );
 
-пше

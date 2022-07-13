@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DOM from 'react-dom-factories';
 
 import './ShopBlock.css';
 
 import ProductBlock from './ProductBlock';
+import ProductInfo from './ProductInfo';
 
 class ShopBlock extends React.Component {
 
@@ -25,47 +25,66 @@ class ShopBlock extends React.Component {
       isSelected: null,
    };
 
-   selectedProduct = (productCode) => {
+   cbselected = (productCode) => {
       this.setState({ isSelected: productCode }, null);
    };
 
-   deleteProduct = (productCode) => {
+   cbdelete = (productCode) => {
       if (confirm("Вы точно хотите удалить?")) {
          let newProductList = this.state.products.filter((animal) => animal.code !== productCode);
          this.setState({ products: newProductList }, null);
       }
    };
 
+   cbedit = (productCode) => {
+
+   };
+
    render() {
 
       const productsCode = this.state.products.map((animal) =>
-         React.createElement(ProductBlock, {
-            text: animal.text,
-            key: animal.code,
-            productCode: animal.code,
-            url: animal.url,
-            price: animal.price,
-            residue: animal.residue,
-            delete: this.deleteProduct,
-            selected: this.selectedProduct,
-            isSelected: animal.code === this.state.isSelected,
-         })
+         <ProductBlock
+            text={animal.text} key={animal.code}
+            productCode={animal.code}
+            url={animal.url}
+            price={animal.price}
+            residue={animal.residue}
+            cbdelete={this.cbdelete}
+            cbedit={this.cbedit}
+            cbselected={this.cbselected}
+            isSelected={this.state.isSelected}
+         />
       );
 
-      let tableHeader = DOM.tr({ className: 'AnimalText' },
-         DOM.th(null, 'Animal name'),
-         DOM.th(null, 'Url'),
-         DOM.th(null, 'Price'),
-         DOM.th(null, 'Residue'),
-         DOM.th(null, 'Delete'),
-      );
+      let tableHeader =
+         <tr className='animaltext'>
+            <th>Animal name</th>
+            <th>Url</th>
+            <th>Price</th>
+            <th>Residue</th>
+            <th>Edit</th>
+            <th>Delete</th>
+         </tr>;
 
+      let productInfo =
+         <ProductInfo
+            productInfo={this.state.products}
+            isSelected={this.state.isSelected}
+         />
 
-      return DOM.div({ className: 'ShopBlock' },
-         DOM.div({ className: 'AnimalHeader' }, this.props.text),
-         DOM.table({ className: 'Table' },
-            DOM.tbody(null, tableHeader, productsCode)
-         )
+      return (
+         <div className='shopblock'>
+            <div className='animalheader'>
+               {this.props.text}
+            </div>
+            <table className='table'>
+               <tbody>
+                  {tableHeader}
+                  {productsCode}
+               </tbody>
+            </table>
+            {productInfo}
+         </div>
       );
    }
 }

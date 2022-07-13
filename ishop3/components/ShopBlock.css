@@ -1,4 +1,4 @@
-.AnimalHeader{
+.animalheader{
 font-size: 30px;
 color: blue;
 text-align: center;
@@ -20,17 +20,17 @@ width: 100px;
 text-align: center;
 }
 
-.AnimalText{
+.animaltext{
 width: 150px;
 font-size: 24px;
 }
 
-.AnimalPrice, .AnimalResidue{
+.animalprice, .animalresidue{
 width: 150px;
 font-size: 20px;
 }
 
-.Img {
+.img {
 width: 200px;
 height: 200px;
 background-size: cover;

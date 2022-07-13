@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DOM from 'react-dom-factories';
 
 import './ProductBlock.css';
 
@@ -12,42 +11,53 @@ class ProductBlock extends React.Component {
       url: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
       residue: PropTypes.number.isRequired,
-      delete: PropTypes.func,
-      selected: PropTypes.func,
-      isSelected: PropTypes.bool,
+      cbdelete: PropTypes.func,
+      cbedit: PropTypes.func,
+      cbselected: PropTypes.func,
+      isSelected: PropTypes.number,
    };
 
-   selected = () => {
-      this.props.selected(this.props.productCode);
+   isSelected = () => {
+      this.props.cbselected(this.props.productCode);
    };
 
    delete = (event) => {
-      this.props.delete(this.props.productCode);
+      this.props.cbdelete(this.props.productCode);
+      event.stopPropagation();
+   };
+
+   edit = (event) => {
+      this.props.cbedit(this.props.productCode);
       event.stopPropagation();
    };
 
    render() {
 
-      let orangeAnimal = this.props.isSelected ? { backgroundColor: 'orange' } : null;
-
-
-      return DOM.tr({
-         className: 'product',
-         style: orangeAnimal,
-         onClick: this.selected,
-      },
-         DOM.td({ className: 'AnimalText' }, this.props.text),
-         DOM.td({ className: 'Img' },
-            DOM.div(null,
-               DOM.img({ className: 'Img', src: this.props.url }),
-            )),
-         DOM.td({ className: 'AnimalPrice' }, this.props.price),
-         DOM.td({ className: 'AnimalResidue' }, this.props.residue),
-         DOM.td(null, DOM.button(
-            { className: 'productdelete', type: 'button', value: this.props.productCode, onClick: this.delete }, 'Delete')),
+      return (
+         <tr className={this.props.isSelected == this.props.productCode ?
+            "product select" : "product"
+         }
+            onClick={this.isSelected} >
+            <td className="animaltext">{this.props.text}</td>
+            <td className="img" >
+               <div>
+                  <img className="img" src={this.props.url} />
+               </div>
+            </td>
+            <td className="animalprice">{this.props.price}</td>
+            <td className="animalresidue">{this.props.residue}</td>
+            <td>
+               <button className='productdelete' type='button'
+                  value={this.props.productCode} onClick={this.edit}>Edit</button>
+            </td>
+            <td>
+               <button className='productdelete' type='button'
+                  value={this.props.productCode} onClick={this.delete}>Delete</button>
+            </td>
+         </tr>
       )
 
    }
-};
+}
 
 export default ProductBlock;
