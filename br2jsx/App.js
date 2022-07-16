@@ -7,9 +7,8 @@ let text = "первый<br>второй<br/>третий<br />последни�
 
 ReactDOM.render(
 
-   <BR2JSX text={text}>
+   <BR2JSX text={text} />
 
-   </BR2JSX>
    , document.getElementById('container')
 );
 
