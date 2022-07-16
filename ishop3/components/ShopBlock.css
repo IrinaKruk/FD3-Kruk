@@ -35,3 +35,16 @@ width: 200px;
 height: 200px;
 background-size: cover;
 }
+
+.productnew {
+   
+   height: 30px;
+color:blue;
+background: yellow;
+border-color: blue;
+}
+
+.new{
+   margin-top: 20px;
+   text-align: center;
+}

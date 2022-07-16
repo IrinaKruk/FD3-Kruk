@@ -83,6 +83,8 @@ class ShopBlock extends React.Component {
                   {productsCode}
                </tbody>
             </table>
+            <div className="new"><button className='productnew' type='button'
+               onClick={this.newproduct}>New product</button></div>
             {productInfo}
          </div>
       );
