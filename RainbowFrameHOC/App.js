@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import DoubleButton from './components/DoubleButton';
 
-let colors = require('./colors.json');;
+let colors = require('./colors.json');
 
 const withRainbowFrame = (colors) => (Component) => {
 

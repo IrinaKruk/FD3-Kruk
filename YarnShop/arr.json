@@ -1,0 +1,362 @@
+[
+   {
+      "id": "1",
+      "name": "Шпагат Macrametr 4 мм, 100 нитей",
+      "price": 332,
+      "imageUrl": "./public/img/1.png"
+   },
+   {
+      "id": "2",
+      "name": "Шпагат джутовый Сибшнур 500 м",
+      "price": 385,
+      "imageUrl": "./public/img/2.png"
+   },
+   {
+      "id": "3",
+      "name": "Пряжа Arachna 'Macrame MAXI'",
+      "price": 1092,
+      "imageUrl": "./public/img/3.png"
+   },
+   {
+      "id": "4",
+      "name": "Пряжа Arachna 'Macrame MINI'",
+      "price": 1053,
+      "imageUrl": "./public/img/4.png"
+   },
+   {
+      "id": "5",
+      "name": "Шнур 'Gamma' 0.8 мм, 50 м",
+      "price": 852,
+      "imageUrl": "./public/img/5.png"
+   },
+   {
+      "id": "6",
+      "name": "Веревка 'Zефирка' 4 мм, 100 м",
+      "price": 617,
+      "imageUrl": "./public/img/6.png"
+   },
+   {
+      "id": "7",
+      "name": "Трикотажная пряжа Zефирка",
+      "price": 360,
+      "imageUrl": "./public/img/7.png"
+   },
+   {
+      "id": "8",
+      "name": "Пряжа трикотажная Arachna 'Слинг Принт'",
+      "price": 135,
+      "imageUrl": "./public/img/8.png"
+   },
+   {
+      "id": "9",
+      "name": "Пряжа Gazzal Baby Cotton",
+      "price": 122,
+      "imageUrl": "./public/img/9.png"
+   },
+   {
+      "id": "10",
+      "name": "Пряжа Alize Puffy",
+      "price": 234,
+      "imageUrl": "./public/img/10.png"
+   },
+   {
+      "id": "11",
+      "name": "Пряжа Alize Lanagold",
+      "price": 289,
+      "imageUrl": "./public/img/11.png"
+   },
+   {
+      "id": "12",
+      "name": "Пряжа DROPS LOVES YOU #9",
+      "price": 345,
+      "imageUrl": "./public/img/12.png"
+   },
+   {
+      "id": "13",
+      "name": "Пряжа Gazzal Wool 175",
+      "price": 412,
+      "imageUrl": "./public/img/13.png"
+   },
+   {
+      "id": "14",
+      "name": "Пряжа DROPS MERINO EXTRA FINE uni colour",
+      "price": 368,
+      "imageUrl": "./public/img/14.png"
+   },
+   {
+      "id": "15",
+      "name": "Пряжа Alize Softy",
+      "price": 410,
+      "imageUrl": "./public/img/15.png"
+   },
+   {
+      "id": "16",
+      "name": "Пряжа DROPS MUSKAT uni colour",
+      "price": 329,
+      "imageUrl": "./public/img/16.png"
+   },
+   {
+      "id": "17",
+      "name": "Пряжа Gazzal Baby Cotton XL",
+      "price": 289,
+      "imageUrl": "./public/img/17.png"
+   },
+   {
+      "id": "18",
+      "name": "Пряжа Gazzal Baby Wool",
+      "price": 190,
+      "imageUrl": "./public/img/18.png"
+   },
+   {
+      "id": "19",
+      "name": "Пряжа Gazzal Wool 115",
+      "price": 370,
+      "imageUrl": "./public/img/19.png"
+   },
+   {
+      "id": "20",
+      "name": "Пряжа Пехорка Детский каприз",
+      "price": 136,
+      "imageUrl": "./public/img/20.png"
+   },
+   {
+      "id": "21",
+      "name": "Пряжа Rial Filati Baby Supremo",
+      "price": 690,
+      "imageUrl": "./public/img/21.png"
+   },
+   {
+      "id": "22",
+      "name": "Пряжа Rial Filati Morbidone",
+      "price": 589,
+      "imageUrl": "./public/img/22.png"
+   },
+   {
+      "id": "23",
+      "name": "Пряжа Rial Filati Merino soft'",
+      "price": 1092,
+      "imageUrl": "./public/img/23.png"
+   },
+   {
+      "id": "24",
+      "name": "Пряжа Rial Filati Relax",
+      "price": 1053,
+      "imageUrl": "./public/img/24.png"
+   },
+   {
+      "id": "25",
+      "name": "Пряжа Rial Filati Wool Alpaca",
+      "price": 832,
+      "imageUrl": "./public/img/25.png"
+   },
+   {
+      "id": "26",
+      "name": "Пряжа Rial Filati Mega Morbidone",
+      "price": 657,
+      "imageUrl": "./public/img/26.png"
+   },
+   {
+      "id": "27",
+      "name": "Пряжа Rial Filati Mohair",
+      "price": 460,
+      "imageUrl": "./public/img/27.png"
+   },
+   {
+      "id": "28",
+      "name": "Пряжа Rial Filati Easy",
+      "price": 135,
+      "imageUrl": "./public/img/28.png"
+   },
+   {
+      "id": "29",
+      "name": "Пряжа Schachenmayr Catania",
+      "price": 378,
+      "imageUrl": "./public/img/29.png"
+   },
+   {
+      "id": "30",
+      "name": "Пряжа Schachenmayr Merino Extrafine 120",
+      "price": 638,
+      "imageUrl": "./public/img/30.png"
+   },
+   {
+      "id": "31",
+      "name": "Пряжа Schachenmayr Alpaca Classico",
+      "price": 284,
+      "imageUrl": "./public/img/31.png"
+   },
+   {
+      "id": "32",
+      "name": "Пряжа Schachenmayr Boston",
+      "price": 945,
+      "imageUrl": "./public/img/32.png"
+   },
+   {
+      "id": "33",
+      "name": "Пряжа Schachenmayr Merino Extrafine 170",
+      "price": 412,
+      "imageUrl": "./public/img/33.png"
+   },
+   {
+      "id": "34",
+      "name": "Пряжа Schachenmayr Fashion Cotton Jersey",
+      "price": 587,
+      "imageUrl": "./public/img/34.png"
+   },
+   {
+      "id": "35",
+      "name": "Пряжа Schachenmayr Merino Extrafine 85",
+      "price": 410,
+      "imageUrl": "./public/img/35.png"
+   },
+   {
+      "id": "36",
+      "name": "Пряжа Schachenmayr Wool 125",
+      "price": 429,
+      "imageUrl": "./public/img/36.png"
+   },
+   {
+      "id": "37",
+      "name": "Пряжа Schachenmayr Fashion Nordic Dream",
+      "price": 789,
+      "imageUrl": "./public/img/37.png"
+   },
+   {
+      "id": "38",
+      "name": "Пряжа Schachenmayr Fashion Alpaca Wool Mix",
+      "price": 890,
+      "imageUrl": "./public/img/38.png"
+   },
+   {
+      "id": "39",
+      "name": "Пряжа Schachenmayr Wool 85",
+      "price": 670,
+      "imageUrl": "./public/img/39.png"
+   },
+   {
+      "id": "40",
+      "name": "Пряжа Himalaya Dolphin Baby",
+      "price": 136,
+      "imageUrl": "./public/img/40.png"
+   },
+   {
+      "id": "41",
+      "name": "Пряжа Himalaya GLITTER",
+      "price": 390,
+      "imageUrl": "./public/img/41.png"
+   },
+   {
+      "id": "42",
+      "name": "Пряжа Fibra Natura Raffia",
+      "price": 1204,
+      "imageUrl": "./public/img/42.png"
+   },
+   {
+      "id": "43",
+      "name": "Пряжа Rowan Big Wool",
+      "price": 692,
+      "imageUrl": "./public/img/43.png"
+   },
+   {
+      "id": "44",
+      "name": "Пряжа Rowan Handknit Cotton",
+      "price": 963,
+      "imageUrl": "./public/img/44.png"
+   },
+   {
+      "id": "45",
+      "name": "Пряжа Rowan Mako Cotton",
+      "price": 877,
+      "imageUrl": "./public/img/45.png"
+   },
+   {
+      "id": "46",
+      "name": "Пряжа BBB New Master",
+      "price": 717,
+      "imageUrl": "./public/img/46.png"
+   },
+   {
+      "id": "47",
+      "name": "Пряжа BBB Soft Dream",
+      "price": 599,
+      "imageUrl": "./public/img/47.png"
+   },
+   {
+      "id": "48",
+      "name": "Пряжа BBB Premiere",
+      "price": 635,
+      "imageUrl": "./public/img/48.png"
+   },
+   {
+      "id": "49",
+      "name": "Пряжа BBB Martine",
+      "price": 778,
+      "imageUrl": "./public/img/49.png"
+   },
+   {
+      "id": "50",
+      "name": "Пряжа BBB Record",
+      "price": 638,
+      "imageUrl": "./public/img/50.png"
+   },
+   {
+      "id": "51",
+      "name": "Пряжа с пайетками BBB TRILLY",
+      "price": 884,
+      "imageUrl": "./public/img/51.png"
+   },
+   {
+      "id": "52",
+      "name": "Пряжа BBB FILO di SCOZIA №5",
+      "price": 945,
+      "imageUrl": "./public/img/52.png"
+   },
+   {
+      "id": "53",
+      "name": "Пряжа BBB Full",
+      "price": 912,
+      "imageUrl": "./public/img/53.png"
+   },
+   {
+      "id": "54",
+      "name": "Пряжа BBB Oliver",
+      "price": 583,
+      "imageUrl": "./public/img/54.png"
+   },
+   {
+      "id": "55",
+      "name": "Пряжа BBB Baby Kashmir",
+      "price": 510,
+      "imageUrl": "./public/img/55.png"
+   },
+   {
+      "id": "56",
+      "name": "Пряжа BBB Melange",
+      "price": 356,
+      "imageUrl": "./public/img/56.png"
+   },
+   {
+      "id": "57",
+      "name": "Пряжа BBB Balmy Pluss",
+      "price": 709,
+      "imageUrl": "./public/img/57.png"
+   },
+   {
+      "id": "58",
+      "name": "Пряжа BBB Super Boucle",
+      "price": 890,
+      "imageUrl": "./public/img/58.png"
+   },
+   {
+      "id": "59",
+      "name": "Пряжа BBB Merino 12",
+      "price": 673,
+      "imageUrl": "./public/img/59.png"
+   },
+   {
+      "id": "60",
+      "name": "Пряжа BBB Belfiore",
+      "price": 736,
+      "imageUrl": "./public/img/60.png"
+   }
+]
