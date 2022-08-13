@@ -1,5 +1,16 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import ContentLoader from "react-content-loader";
+
+import ShopContext from '../../context';
+
+import styled, { keyframes } from 'styled-components';
+import { pulse } from 'react-animations';
+
+const pulseAnimation = keyframes`${pulse}`;
+
+const PulseDiv = styled.div`
+  animation: 1.2s ${pulseAnimation};
+`;
 
 function Card({
    id,
@@ -9,25 +20,30 @@ function Card({
    onLike,
    onPlus,
    favorited = false,
-   add = false,
    isLoading = false
 }) {
 
-   const [isAdded, setIsAdded] = useState(add);
+   const { isItemAdd } = React.useContext(ShopContext);
+
    const [isFavorite, setIsFavorite] = useState(favorited);
 
    const onclickPlus = () => {
       onPlus({
-         id, title,
-         price, imageUrl
+         id,
+         parentId: id,
+         title,
+         price,
+         imageUrl
       });
-      setIsAdded(!isAdded);
    };
 
    const onClickLike = () => {
       onLike({
-         id, title,
-         price, imageUrl
+         id,
+         parentId: id,
+         title,
+         price,
+         imageUrl
       });
       setIsFavorite(!isFavorite);
    };
@@ -55,25 +71,34 @@ function Card({
                <rect x="7" y="295" rx="9" ry="9" width="185" height="50" />
             </ContentLoader> :
                (
-                  <div>
-                     <div className='like'>
-                        <img onClick={onClickLike} src={isFavorite ? "./public/img/heart like.png" : "./public/img/heart unlike.png"} alt="heart" />
-                     </div>
+                  <PulseDiv>
+                     <Fragment>
 
-                     <img width={150} height={150} src={imageUrl} alt="card" />
-                     <p>{title}</p>
-                     <div>
-                        <b>{price} руб.</b>
-                     </div>
+                        {onLike && (
+                           <div className='like'>
+                              <img onClick={onClickLike}
+                                 src={isFavorite ? "./public/img/heart like.png" : "./public/img/heart unlike.png"}
+                                 alt="heart" />
+                           </div>
+                        )}
+                        <img width={150}
+                           height={150}
+                           src={imageUrl}
+                           alt="card" />
+                        <p>{title}</p>
+                        <div>
+                           <b>{price} руб.</b>
+                        </div>
 
-                     <button className={isAdded ? 'btncard__added' : 'btncard'} onClick={onclickPlus}>
-                        <img src="./public/img/cart.svg" alt="cart" />
-                        <span>{isAdded ? 'В корзине' : 'В корзину'}</span>
-                     </button>
-                  </div>
-               )
-         }
-      </div>
+                        <button className={isItemAdd(id) ? 'btncard__added' : 'btncard'}
+                           onClick={onclickPlus}>
+                           <img src="./public/img/cart.svg" alt="cart" />
+                           <span>{isItemAdd(id) ? 'В корзине' : 'В корзину'}</span>
+                        </button>
+                     </Fragment>
+                  </PulseDiv>
+               )}
+      </div >
    )
 }
 

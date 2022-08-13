@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+
+import ShopContext from '../../context';
+
 import Card from '../Card/Card';
 
-function Pagethree({ items, onSearchInput, searchValue, onAddItemToFavorite, onAddItemtoCard }) {
+function Pagethree() {
 
+   const { items,
+      onSearchInput,
+      searchValue,
+      onAddItemToFavorite,
+      onAddItemtoCard
+   } = React.useContext(ShopContext);
 
    return <div className='content'>
       <div>
@@ -24,7 +33,10 @@ function Pagethree({ items, onSearchInput, searchValue, onAddItemToFavorite, onA
          <div className='container__card'>
             {items
                .slice(40, 60)
-               .filter((item => item.name.toLowerCase().includes(searchValue)))
+               .filter((item =>
+                  item.name
+                     .toLowerCase()
+                     .includes(searchValue.toLowerCase())))
                .map((item, index) => (
                   <Card
                      key={index}
