@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+
+import ShopContext from '../../context';
+
 import Card from '../Card/Card';
 
-function Pagetwo({ items, onSearchInput, searchValue, onAddItemToFavorite, onAddItemtoCard }) {
+function Pagetwo() {
 
+   const { items,
+      onSearchInput,
+      searchValue,
+      onAddItemToFavorite,
+      onAddItemtoCard
+   } = React.useContext(ShopContext);
 
    return <div className='content'>
       <div>
@@ -18,13 +27,18 @@ function Pagetwo({ items, onSearchInput, searchValue, onAddItemToFavorite, onAdd
             <button className='page'>3</button>
          </Link>
          <div className='btncard search'>
-            <input onChange={onSearchInput} value={searchValue} placeholder='Поиск товара' />
+            <input onChange={onSearchInput}
+               value={searchValue}
+               placeholder='Поиск товара' />
             <img src="./public/img/search.svg" alt="search" />
          </div>
          <div className='container__card'>
             {items
                .slice(20, 40)
-               .filter((item => item.name.toLowerCase().includes(searchValue)))
+               .filter((item =>
+                  item.name
+                     .toLowerCase()
+                     .includes(searchValue.toLowerCase())))
                .map((item, index) => (
                   <Card
                      key={index}

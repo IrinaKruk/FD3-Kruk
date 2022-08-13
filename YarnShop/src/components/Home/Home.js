@@ -1,16 +1,19 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+import ShopContext from '../../context';
+
 import Card from '../Card/Card';
 
-function Home({ items,
-   cartItems,
-   onSearchInput,
-   searchValue,
-   onAddItemToFavorite,
-   onAddItemtoCard,
-   isLoading
-}) {
+function Home() {
+
+   const { items,
+      searchValue,
+      onSearchInput,
+      onAddItemToFavorite,
+      onAddItemtoCard,
+      isLoading
+   } = React.useContext(ShopContext);
 
    return <div className='content'>
       <div>
@@ -23,22 +26,25 @@ function Home({ items,
             <img src="./public/img/search.svg" alt="search" />
          </div>
          <div className='container__card'>
-            {items
-               .filter((item => item.name.toLowerCase().includes(searchValue.toLowerCase())))
+
+            {(items.filter((item => item.name.toLowerCase().includes(searchValue.toLowerCase()))))
                .map((item, index) => (
+
                   <Card
                      key={index}
                      title={item.name}
                      price={item.price}
                      imageUrl={item.imageUrl}
                      id={item.id}
+                     parentId={item.parentId}
                      onLike={(obj) => onAddItemToFavorite(obj)}
                      onPlus={(obj) => onAddItemtoCard(obj)}
-                     add={cartItems.some(obj => Number(obj.id) === Number(item.id))}
                      load={isLoading}
                   />
+
                ))
             }
+
          </div>
       </div>
    </div>

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect, Fragment } from 'react';
 import { Route, Switch } from "react-router-dom";
 import axios from 'axios';
 
@@ -22,54 +22,54 @@ function Shop() {
    const [searchValue, setSearchValue] = useState('');
    const [isLoading, setIsLoading] = useState(true);
 
-   //React.useEffect(() => {
-   //   async function fetchData() {
-
-   //      const [cartResponse, favoritesResponse, itemsResponse] = await Promise.all([
-   //         axios.get('https://62ece9f2818ab252b60569c2.mockapi.io/cart'),
-   //         axios.get('https://62ece9f2818ab252b60569c2.mockapi.io/favorite'),
-   //         axios.get('https://62ece9f2818ab252b60569c2.mockapi.io/items'),
-   //      ]);
-
-   //      setIsLoading(false);
-   //      setCartItems(cartResponse.data);
-   //      setFavoriteItems(favoritesResponse.data);
-   //      setItems(itemsResponse.data);
-
-   //   }
-   //   fetchData();
-   //}, []);
-
-   React.useEffect(() => {
+   useEffect(() => {
 
       axios.get('https://62ece9f2818ab252b60569c2.mockapi.io/cart').then((result) => {
          setCartItems(result.data);
+         console.log(result.data);
          setIsLoading(false);
       });
+
       axios.get('https://62ece9f2818ab252b60569c2.mockapi.io/favorite').then((result) => {
          setFavoriteItems(result.data);
-
       });
+
       axios.get('https://62ece9f2818ab252b60569c2.mockapi.io/items').then((result) => {
          setItems(result.data);
          console.log(result.data);
-
       });
 
    }, []);
 
-   const onAddItemtoCard = (obj) => {
-      axios.post('https://62ece9f2818ab252b60569c2.mockapi.io/cart', obj);
-      setCartItems(prev => [...prev, obj]);
+   const onAddItemtoCard = async (obj) => {
+      const findItem = cartItems.find((item) => Number(item.parentId) === Number(obj.id));
+      if (findItem) {
+         setCartItems((prev) => prev.filter((item) => Number(item.parentId) !== Number(obj.id)));
+         await axios.delete(`https://62ece9f2818ab252b60569c2.mockapi.io/cart/${findItem.id}`);
+      } else {
+         setCartItems((prev) => [...prev, obj]);
+         const { data } = await axios.post('https://62ece9f2818ab252b60569c2.mockapi.io/cart', obj);
+         setCartItems((prev) =>
+            prev.map((item) => {
+               if (item.parentId === data.parentId) {
+                  return {
+                     ...item,
+                     id: data.id,
+                  };
+               }
+               return item;
+            }),
+         );
+      }
    };
 
-   const onAddItemToFavorite = (obj) => {
-      if (favoriteItems.find(favoriteObj => favoriteObj.id == obj.id)) {
-         axios.delete(`https://62ece9f2818ab252b60569c2.mockapi.io/favorite/${obj.id}`);
+   const onAddItemToFavorite = async (obj) => {
+      if (favoriteItems.find(favoriteObj => Number(favoriteObj.id) === Number(obj.id))) {
+         await axios.delete(`https://62ece9f2818ab252b60569c2.mockapi.io/favorite/${obj.id}`);
          setFavoriteItems(prev => prev.filter(item => Number(item.id) !== Number(obj.id)));
       } else {
-         axios.post('https://62ece9f2818ab252b60569c2.mockapi.io/favorite', obj);
-         setFavoriteItems(prev => [...prev, obj]);
+         const { data } = await axios.post('https://62ece9f2818ab252b60569c2.mockapi.io/favorite', obj);
+         setFavoriteItems(prev => [...prev, data]);
       }
    };
 
@@ -77,14 +77,14 @@ function Shop() {
       setSearchValue(event.target.value);
    };
 
-   const onRemoveItemsInCart = (id) => {
-      //console.log(id);
-      axios.delete(`https://62ece9f2818ab252b60569c2.mockapi.io/cart/${id}`);
+   const onRemoveItemsInCart = async (id) => {
+      console.log(id);
+      await axios.delete(`https://62ece9f2818ab252b60569c2.mockapi.io/cart/${id}`);
       setCartItems(prev => prev.filter(item => Number(item.id) !== Number(id)));
    };
 
    const isItemAdd = (id) => {
-      return cartItems.some((obj) => Number(obj.id) === Number(id));
+      return cartItems.some((obj) => Number(obj.parentId) === Number(id));
    }
 
 
@@ -93,60 +93,40 @@ function Shop() {
          items,
          cartItems,
          favoriteItems,
-         isItemAdded,
+         isItemAdd,
          onAddItemToFavorite,
          onAddItemtoCard,
          setCardOpen,
          setCartItems,
+         searchValue,
+         onSearchInput,
+         isLoading,
+         onRemoveItemsInCart
       }}>
          <div className="wrapper">
+
             {cardOpen && <Drawer items={cartItems}
                onClose={() => setCardOpen(false)}
-               onRemove={onRemoveItemsInCart} />}
+               onRemoveItemsInCart={onRemoveItemsInCart}
+               cardOpen={cardOpen}
+            />}
 
             <Header onClickCard={() => setCardOpen(true)} />
-
             <Switch>
                <Route path='/' exact>
-                  <Home items={items}
-                     cartItems={cartItems}
-                     onSearchInput={onSearchInput}
-                     searchValue={searchValue}
-                     onAddItemToFavorite={onAddItemToFavorite}
-                     onAddItemtoCard={onAddItemtoCard}
-                     setCartItems={setCartItems}
-                     setCardOpen={setCardOpen}
-                     isLoading={isLoading} />
+                  <Home />
                </Route>
                <Route path='/favorite' exact>
-                  <Favorite onAddItemToFavorite={onAddItemToFavorite} />
+                  <Favorite />
                </Route>
                <Route path='/catalog/page/1' exact>
-                  <Pageone items={items}
-                     onSearchInput={onSearchInput}
-                     searchValue={searchValue}
-                     onAddItemToFavorite={onAddItemToFavorite}
-                     onAddItemtoCard={onAddItemtoCard}
-                     setCartItems={setCartItems}
-                     setCardOpen={setCardOpen} />
+                  <Pageone />
                </Route>
                <Route path='/catalog/page/2' exact>
-                  <Pagetwo items={items}
-                     onSearchInput={onSearchInput}
-                     searchValue={searchValue}
-                     onAddItemToFavorite={onAddItemToFavorite}
-                     onAddItemtoCard={onAddItemtoCard}
-                     setCartItems={setCartItems}
-                     setCardOpen={setCardOpen} />
+                  <Pagetwo />
                </Route>
                <Route path='/catalog/page/3' exact>
-                  <Pagethree items={items}
-                     onSearchInput={onSearchInput}
-                     searchValue={searchValue}
-                     onAddItemToFavorite={onAddItemToFavorite}
-                     onAddItemtoCard={onAddItemtoCard}
-                     setCartItems={setCartItems}
-                     setCardOpen={setCardOpen} />
+                  <Pagethree />
                </Route>
             </Switch>
 

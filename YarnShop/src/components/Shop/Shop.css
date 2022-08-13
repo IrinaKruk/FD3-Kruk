@@ -54,7 +54,7 @@ header {
 
 .mainfoto{
    max-width: 1620px;
-   height: 200px;
+   height: 150px;
    margin: 0 auto;
    background: linear-gradient(101.38deg, #DDDDBF 3.06%, #ECECD5 85.68%);
 }
@@ -89,7 +89,7 @@ header {
    width: 220px;
    border-radius: 20px;
    margin-right: 30px;
-   margin-bottom: 30px;
+   margin-bottom: 30px; 
    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
    display: flex;
    flex-direction: column;
@@ -193,7 +193,7 @@ color: #424242;
 }
 
 .catalog{
-   margin: 20px 0;
+   margin: 10px 0;
    font-size: 30px;
 }
 
@@ -341,11 +341,11 @@ line-height: 63px;
 
 .page{
    width: 50px;
-   height: 50px;
+   height: 30px;
    border: 1px solid #BDBDBD;
-   border-radius: 10px;
+   border-radius: 50px;
    background: #FFFFFF;
-   margin: 20px 10px;
+   margin: 10px 10px;
    background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

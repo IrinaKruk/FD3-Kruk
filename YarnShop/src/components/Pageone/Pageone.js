@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import ShopContext from '../../context';
+
 import Card from '../Card/Card';
 
-function Pageone({ items, onSearchInput, searchValue, onAddItemToFavorite, onAddItemtoCard }) {
+function Pageone() {
 
+   const { items,
+      onSearchInput,
+      searchValue,
+      onAddItemToFavorite,
+      onAddItemtoCard,
+   } = React.useContext(ShopContext);
 
    return <div className='content'>
       <div>
@@ -26,8 +34,12 @@ function Pageone({ items, onSearchInput, searchValue, onAddItemToFavorite, onAdd
             {
                items
                   .slice(0, 20)
-                  .filter((item => item.name.toLowerCase().includes(searchValue)))
+                  .filter((item =>
+                     item.name
+                        .toLowerCase()
+                        .includes(searchValue.toLowerCase())))
                   .map((item, index) => (
+
                      <Card
                         key={index}
                         title={item.name}
@@ -37,6 +49,7 @@ function Pageone({ items, onSearchInput, searchValue, onAddItemToFavorite, onAdd
                         onLike={(obj) => onAddItemToFavorite(obj)}
                         onPlus={(obj) => onAddItemtoCard(obj)}
                      />
+
                   ))
             }
          </div>

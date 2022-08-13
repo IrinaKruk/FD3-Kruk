@@ -23,8 +23,7 @@ function Header({ onClickCard }) {
          <Link to="/">
             <div className='mainfoto'>
                <div className='mainfoto__container'>
-                  <img height={200} className="foto" src="./public/img/yarn.png" alt="Foto" />
-                  <img className="hobby" src="./public/img/hobby.png" alt="Hobby" />
+                  <img height={150} className="foto" src="./public/img/yarn.png" alt="Foto" />
                </div>
             </div>
          </Link>
